@@ -1,0 +1,24 @@
+.video-list-item {
+  padding: 0 10px;
+    cursor: pointer;
+    
+    .video-link{
+      text-decoration: none;
+
+      & > p {
+        font-size: 13px;
+        color: #7f87a0;
+        margin-bottom: 10px;
+      }
+  
+      .thumbnail-img {
+        width: 100%;
+        height: auto;
+      }
+  
+      .video-title {
+        font-size: 14px;
+        color: #111;
+      }
+    }
+}
