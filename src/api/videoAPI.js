@@ -21,3 +21,17 @@ export const getPopularVideos = (videoAPI = api) => {
     key: constant.API_KEY
   });
 };
+
+/**
+ * Function  get video by id
+ * @param {string} videoId id of video
+ */
+export const getVideosById = (videoId, videoAPI = api) => {
+  const url = '/videos';
+
+  return videoAPI.get(url, {
+    id: videoId,
+    part: constant.PART,
+    key: constant.API_KEY
+  });
+};

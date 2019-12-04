@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import HomePage from '../homepage/HomePage';
 import DetailPage from '../detail-page/DetailPage';
+import { withRouter } from 'react-router';
 
 const RootRouter = () => (
   <Router>

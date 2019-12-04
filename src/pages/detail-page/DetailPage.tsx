@@ -1,10 +1,20 @@
 import React from 'react'
 import DetailVideo from '../../components/detail-video/DetailVideo'
 
-const DetailPage: React.FC = (): JSX.Element => {
+interface IProps {
+  match: {
+    params: {
+      id: string
+    }
+  };
+}
+
+const DetailPage: React.FC<IProps> = ({match}): JSX.Element => {
   return (
     <div>
-      {/* <DetailVideo /> */}
+      <DetailVideo
+        videoId={match.params.id}
+      />
     </div>
   )
 }
