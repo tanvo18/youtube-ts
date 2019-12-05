@@ -66,10 +66,10 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
           </div>
         </div>
 
-        <div>
-          <p>{selectedVideo.snippet.channelTitle}</p>
-          <p>Published on {selectedVideo.snippet.publishedAt}</p>
-          <p>{selectedVideo.snippet.description}</p>
+        <div className="channel-wrapper">
+          <p className="channel-wrapper__title">{selectedVideo.snippet.channelTitle}</p>
+          <p className="channel-wrapper__time">Published on {selectedVideo.snippet.publishedAt}</p>
+          <p className="channel-wrapper__description">{selectedVideo.snippet.description}</p>
         </div>
       </div>
     </div>
