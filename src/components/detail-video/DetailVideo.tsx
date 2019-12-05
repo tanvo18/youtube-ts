@@ -36,6 +36,7 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
   const [selectedVideo, setVideo] = useState<IVideo | any>(defaultVideo);
 
   useEffect(() => {
+    // Using api to fetch videos 
     getVideosById(videoId)
       .then((response) => {
         let videoItem = response.data.items[0];
@@ -49,7 +50,7 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
   }, []);
 
   return (
-    <div className="row">
+    <div className="row detail-section">
       <div className="col-8">
         <div className="detail-wrapper">
           <iframe src={videoUrl}

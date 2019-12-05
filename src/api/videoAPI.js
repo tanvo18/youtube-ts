@@ -9,10 +9,10 @@ const api = create({
 /**
  * Function get popular videos
  */
-export const getPopularVideos = (videoAPI = api) => {
+export const getPopularVideos = () => {
   const url = '/videos';
 
-  return videoAPI.get(url, {
+  return api.get(url, {
     chart: constant.CHART,
     regionCode: constant.REGION_CODE,
     part: constant.PART,
@@ -26,10 +26,10 @@ export const getPopularVideos = (videoAPI = api) => {
  * Function  get video by id
  * @param {string} videoId id of video
  */
-export const getVideosById = (videoId, videoAPI = api) => {
+export const getVideosById = (videoId) => {
   const url = '/videos';
 
-  return videoAPI.get(url, {
+  return api.get(url, {
     id: videoId,
     part: constant.PART,
     key: constant.API_KEY
