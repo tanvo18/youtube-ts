@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getVideosById } from '../../api/videoAPI';
-import { convertFormatDate } from '../../utils/common';
-
+import { convertFormatDate, roundNumber } from '../../utils/common';
+import "./DetailVideo.scss";
 
 interface IProps {
   videoId: string
@@ -40,36 +40,44 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
       .then((response) => {
         let videoItem = response.data.items[0];
         videoItem.snippet.publishedAt = convertFormatDate(videoItem.snippet.publishedAt);
+        videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount);
+        videoItem.statistics.likeCount = roundNumber(videoItem.statistics.likeCount);
+        videoItem.statistics.dislikeCount = roundNumber(videoItem.statistics.dislikeCount);
+
         setVideo(videoItem);
       })
   }, []);
 
   return (
-    <div>
-      <iframe src={videoUrl}
-        title={'title'}
-        width="100%"
-        height="580"
-        frameBorder="0"
-        allowFullScreen>
-      </iframe>
+    <div className="row">
+      <div className="col-8">
+        <div className="detail-wrapper">
+          <iframe src={videoUrl}
+            title={'title'}
+            width="100%"
+            height="580"
+            frameBorder="0"
+            allowFullScreen>
+          </iframe>
 
-      <div>
-        <p className="detail-title">{selectedVideo.snippet.title}</p>
-        <div className="detail-description">
-          <p className="detail-view">{selectedVideo.statistics.viewCount} views</p>
           <div>
-            <button className="btn btn-rate"><i className="fa fa-thumbs-up"></i></button>
-            <span>{selectedVideo.statistics.likeCount}</span>
-            <button className="btn btn-rate"><i className="fa fa-thumbs-down"></i></button>
-            <span>{selectedVideo.statistics.dislikeCount}</span>
-          </div>
-        </div>
+            <p className="detail-title">{selectedVideo.snippet.title}</p>
+            <div className="detail-description">
+              <p className="detail-view">{selectedVideo.statistics.viewCount} views</p>
+              <div>
+                <button className="btn btn-rate"><i className="fa fa-thumbs-up"></i></button>
+                <span>{selectedVideo.statistics.likeCount}</span>
+                <button className="btn btn-rate"><i className="fa fa-thumbs-down"></i></button>
+                <span>{selectedVideo.statistics.dislikeCount}</span>
+              </div>
+            </div>
 
-        <div className="channel-wrapper">
-          <p className="channel-wrapper__title">{selectedVideo.snippet.channelTitle}</p>
-          <p className="channel-wrapper__time">Published on {selectedVideo.snippet.publishedAt}</p>
-          <p className="channel-wrapper__description">{selectedVideo.snippet.description}</p>
+            <div className="channel-wrapper">
+              <p className="channel-wrapper__title">{selectedVideo.snippet.channelTitle}</p>
+              <p className="channel-wrapper__time">Published on {selectedVideo.snippet.publishedAt}</p>
+              <p className="channel-wrapper__description">{selectedVideo.snippet.description}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

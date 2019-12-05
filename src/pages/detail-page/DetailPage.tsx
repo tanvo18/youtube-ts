@@ -11,7 +11,7 @@ interface IProps {
 
 const DetailPage: React.FC<IProps> = ({match}): JSX.Element => {
   return (
-    <div>
+    <div className="container-fluid">
       <DetailVideo
         videoId={match.params.id}
       />

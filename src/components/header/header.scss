@@ -1,18 +1,26 @@
 .header-wrapper {
   display: flex;
-
-  .search-wrap {
+  padding: 0 20px;
+  .search-section {
+    width: 1000px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    margin-left: 100px;
-
-    .search-input, .input-group-append {
-      height: 34px;
+    
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      margin-left: 100px;
       width: 500px;
-    }
-
-    .search-input {
-      padding-left: 10px;
+  
+      .search-input, .input-group-append {
+        height: 34px;
+      }
+  
+      .search-input {
+        padding-left: 10px;
+        width: 100%;
+      }
     }
   }
 }
