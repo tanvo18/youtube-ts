@@ -19,6 +19,7 @@
 ## Current archievement
 - Fetch list video in homepage
 - Click a video and go to detail page
+- Search video
 - Apply testing for component
 
 ## Advantage of using Typescript
