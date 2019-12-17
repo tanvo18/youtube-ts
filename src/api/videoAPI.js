@@ -35,3 +35,34 @@ export const getVideosById = (videoId) => {
     key: constant.API_KEY
   });
 };
+
+/**
+ * Function search video by keyword
+ * @param {string} keyword search keyword
+ */
+export const searchVideoByKeyword = (keyword) => {
+  const url = '/search';
+
+  return api.get(url, {
+    part: 'snippet',
+    maxResults: constant.MAX_RESULT,
+    q: keyword,
+    type: constant.TYPE,
+    key: constant.API_KEY
+  });
+};
+
+/**
+ * Function get statistic of video by id
+ * @param {string} videoId id of video 
+ */
+export const getStatisticById = (videoId) => {
+  const url = '/videos';
+
+  return api.get(url, {
+    id: videoId,
+    part: constant.PART,
+    maxResults: constant.MAX_RESULT,
+    key: constant.API_KEY
+  });
+};

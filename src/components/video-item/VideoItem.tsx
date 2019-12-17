@@ -40,7 +40,7 @@ const VideoItem: React.FC<IProps> = ({ video, onClickVideo }): JSX.Element => {
         </div>
         <p className="video-title">{snippet.title}</p>
         <p className="channel-title">{snippet.channelTitle}</p>
-        <p className="video-description">{statistics.viewCount} views - {snippet.publishedAt}</p>
+        <p className="video-description">{(statistics && statistics.viewCount) ? statistics.viewCount : '0'} views - {snippet.publishedAt}</p>
       </Link>
     </li>
   )

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../common/logo/Logo';
 import logoImg from '../../assets/images/youtube.png';
 import './header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = (): JSX.Element => {
+  const [searchText, setText] = useState<string>('');
+
   return (
     <div className="container-fluid">
       <div className="header-wrapper">
@@ -20,9 +23,15 @@ const Header = (): JSX.Element => {
               className="search-input"
               type="text"
               placeholder="Search"
+              value={searchText}
+              onChange={(e) => setText(e.currentTarget.value)}
             />
             <div className="input-group-append">
-              <button><i className="fa fa-search"></i></button>
+              <Link
+                to={`/search/${searchText}`}
+              >
+                <button className="btn-search"><i className="fa fa-search"></i></button>
+              </Link>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ interface IProps {
   };
 }
 
-const DetailPage: React.FC<IProps> = ({match}): JSX.Element => {
+const DetailPage: React.FC<IProps> = ({ match }): JSX.Element => {
   return (
     <div className="container-fluid">
       <DetailVideo
