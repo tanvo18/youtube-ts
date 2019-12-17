@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import VideoItem from '../video-item/VideoItem';
-import * as videoAPI from '../../api/videoAPI';
 import './VideoList.scss';
-import { roundNumber, calculateDate } from '../../utils/common';
 
-const VideoList: React.FC = (): JSX.Element => {
-  const handleClickVideo = (event: MouseEvent, videoId: string) => {
-    
+interface IProps {
+  videos: []
+}
+
+const VideoList: React.FC<IProps> = ({videos}): JSX.Element => {
+  const handleClickVideo = (event: React.MouseEvent<HTMLElement>, videoId: string) => {
+    console.log('videoId ', videoId);
   }
-
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    videoAPI.getPopularVideos()
-    .then(response => {
-      // Normalize data
-      let normalizeVideos = response.data.items;
-      normalizeVideos.forEach((videoItem: any) => {
-        videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
-        videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
-      })
-      setVideos(normalizeVideos);
-    })
-  }, []);
 
   return (
     <div className="container video-container">

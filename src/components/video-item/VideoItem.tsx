@@ -19,7 +19,7 @@ interface IProps {
       viewCount: string;
     }
   };
-  onClickVideo: any;
+  onClickVideo(event: React.MouseEvent<HTMLElement>, videoId: string): void;
 }
 
 const VideoItem: React.FC<IProps> = ({ video, onClickVideo }): JSX.Element => {
@@ -29,7 +29,7 @@ const VideoItem: React.FC<IProps> = ({ video, onClickVideo }): JSX.Element => {
   return (
     <li
       className="video-list-item"
-      onClick={(e) => onClickVideo(e, video.id)}
+      onClick={(e: React.MouseEvent<HTMLElement>): void => onClickVideo(e, video.id)}
     >
       <Link
         className="video-link"
