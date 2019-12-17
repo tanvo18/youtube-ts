@@ -2,14 +2,16 @@ import moment from 'moment';
 
 /**
  * Round number to Million or Thousand to abbreviate view count
- * @param {string} number Number of view count
+ * @param {string} num Number of view count
+ * 
+ * @return {string} viewCount
  */
-export const roundNumber = (stringNum: string): string => {
-  let viewCount; 
-  let number;
+export const roundNumber = (num: string): string => {
+  let viewCount: string; 
+  let number: number;
 
-  if (stringNum) {
-    number = parseInt(stringNum, 10);
+  if (num) {
+    number = parseInt(num, 10);
   } else {  
     number = 0;
   }
@@ -29,6 +31,8 @@ export const roundNumber = (stringNum: string): string => {
 /**
  * Calculate the length of date published and now
  * @param {string} dateString video date published
+ * 
+ * @return {string} string of date
  */
 export const calculateDate = (dateString: string): any => {
   return moment(dateString, 'YYYY-MM-DD').fromNow();
@@ -37,15 +41,9 @@ export const calculateDate = (dateString: string): any => {
 /**
  * Convert date format
  * @param {string} dateString 
+ * 
+ * @return {string} string of date
  */
 export const convertFormatDate = (dateString: string): any => {
   return moment(dateString, 'YYYY-MM-DD').format('MMM Do YY');
-};
-
-/**
- * Add commas to number
- * @param {string} number number need to convert
- */
-export const convertNumberWithCommas = (stringNumber: string): string => {
-  return stringNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
