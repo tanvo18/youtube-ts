@@ -3,9 +3,17 @@ import Logo from '../common/logo/Logo';
 import logoImg from '../../assets/images/youtube.png';
 import './header.scss';
 import { Link } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-const Header = (): JSX.Element => {
+interface ChildComponentProps extends RouteComponentProps<any> {
+  /* other props for ChildComponent */
+}
+
+const Header: React.FC<ChildComponentProps> = ({ history }): JSX.Element => {
   const [searchText, setText] = useState<string>('');
+  const handleClickSearchBtn = (e: React.MouseEvent<HTMLElement>, searchText: string) => {
+    history.push(`/search/${searchText}`);
+  };
 
   return (
     <div className="container-fluid">
@@ -27,11 +35,12 @@ const Header = (): JSX.Element => {
               onChange={(e) => setText(e.currentTarget.value)}
             />
             <div className="input-group-append">
-              <Link
-                to={`/search/${searchText}`}
-              >
-                <button className="btn-search"><i className="fa fa-search"></i></button>
-              </Link>
+                <button
+                  className="btn-search"
+                  onClick={(e) => handleClickSearchBtn(e, searchText)}
+                >
+                  <i className="fa fa-search"></i>
+                </button>
             </div>
           </div>
         </div>
@@ -40,4 +49,4 @@ const Header = (): JSX.Element => {
   )
 }
 
-export default Header
+export default withRouter(Header)
