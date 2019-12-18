@@ -34,7 +34,7 @@ const SearchPage: React.FC<IProps> = ({ match }) => {
       setVideos(normalizeVideos);
       });
     });
-  }, []);
+  }, [match.params.searchtext]);
 
   return (
     <div className="video-wrapper">

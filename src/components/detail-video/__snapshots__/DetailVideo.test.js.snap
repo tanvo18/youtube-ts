@@ -1,72 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`test DetailVideo should render correctly 1`] = `
-<div>
-  <iframe
-    allowFullScreen={true}
-    frameBorder="0"
-    height="580"
-    src="http://www.youtube.com/embed/gIOyB9ZXn8s"
-    title="title"
-    width="100%"
-  />
-  <div>
-    <p
-      className="detail-title"
-    >
-      
-    </p>
+<div
+  className="row detail-section"
+>
+  <div
+    className="col-8"
+  >
     <div
-      className="detail-description"
+      className="detail-wrapper"
     >
-      <p
-        className="detail-view"
-      >
-        
-         views
-      </p>
+      <iframe
+        allowFullScreen={true}
+        frameBorder="0"
+        height="580"
+        src="http://www.youtube.com/embed/gIOyB9ZXn8s"
+        title="title"
+        width="100%"
+      />
       <div>
-        <button
-          className="btn btn-rate"
+        <p
+          className="detail-title"
         >
-          <i
-            className="fa fa-thumbs-up"
-          />
-        </button>
-        <span>
           
-        </span>
-        <button
-          className="btn btn-rate"
+        </p>
+        <div
+          className="detail-description"
         >
-          <i
-            className="fa fa-thumbs-down"
-          />
-        </button>
-        <span>
-          
-        </span>
+          <p
+            className="detail-view"
+          >
+            
+             views
+          </p>
+          <div>
+            <button
+              className="btn btn-rate"
+            >
+              <i
+                className="fa fa-thumbs-up"
+              />
+            </button>
+            <span>
+              
+            </span>
+            <button
+              className="btn btn-rate"
+            >
+              <i
+                className="fa fa-thumbs-down"
+              />
+            </button>
+            <span>
+              
+            </span>
+          </div>
+        </div>
+        <div
+          className="channel-wrapper"
+        >
+          <p
+            className="channel-wrapper__title"
+          >
+            
+          </p>
+          <p
+            className="channel-wrapper__time"
+          >
+            Published on 
+            
+          </p>
+          <p
+            className="channel-wrapper__description"
+          >
+            
+          </p>
+        </div>
       </div>
-    </div>
-    <div
-      className="channel-wrapper"
-    >
-      <p
-        className="channel-wrapper__title"
-      >
-        
-      </p>
-      <p
-        className="channel-wrapper__time"
-      >
-        Published on 
-        
-      </p>
-      <p
-        className="channel-wrapper__description"
-      >
-        
-      </p>
     </div>
   </div>
 </div>

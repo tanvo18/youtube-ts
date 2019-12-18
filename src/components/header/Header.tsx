@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Logo from '../common/logo/Logo';
 import logoImg from '../../assets/images/youtube.png';
 import './header.scss';
-import { Link } from 'react-router-dom';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 interface ChildComponentProps extends RouteComponentProps<any> {
