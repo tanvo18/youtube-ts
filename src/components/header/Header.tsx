@@ -11,8 +11,22 @@ interface ChildComponentProps extends RouteComponentProps<any> {
 const Header: React.FC<ChildComponentProps> = ({ history }): JSX.Element => {
   const [searchText, setText] = useState<string>('');
   const handleClickSearchBtn = (e: React.MouseEvent<HTMLElement>, searchText: string) => {
-    history.push(`/search/${searchText}`);
+    linkToPage(searchText);
   };
+
+  const handleSearchChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setText(e.currentTarget.value)
+  }
+
+  const handleSearchPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      linkToPage(searchText);
+    }
+  }
+
+  const linkToPage = (page: string) => {
+    history.push(`/search/${page}`);
+  }
 
   return (
     <div className="container-fluid">
@@ -31,7 +45,8 @@ const Header: React.FC<ChildComponentProps> = ({ history }): JSX.Element => {
               type="text"
               placeholder="Search"
               value={searchText}
-              onChange={(e) => setText(e.currentTarget.value)}
+              onChange={handleSearchChange}
+              onKeyPress={handleSearchPress}
             />
             <div className="input-group-append">
                 <button
