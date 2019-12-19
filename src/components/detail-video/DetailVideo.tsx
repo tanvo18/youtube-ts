@@ -2,20 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { getVideosById } from '../../api/videoAPI';
 import { convertFormatDate, roundNumber } from '../../utils/common';
 import "./DetailVideo.scss";
+import { IVideoItem } from '../../interfaces/Interface';
 
 interface IProps {
   videoId: string
-}
-
-interface IVideo {
-  snippet: {
-    title: string
-  }
-  statistics: {
-    viewCount: string,
-    likeCount: string,
-    dislikeCount: string,
-  }
 }
 
 const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
@@ -33,7 +23,7 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
       dislikeCount: '',
     }
   }
-  const [selectedVideo, setVideo] = useState<IVideo | any>(defaultVideo);
+  const [selectedVideo, setVideo] = useState<IVideoItem | any>(defaultVideo);
 
   useEffect(() => {
     // Using api to fetch videos 

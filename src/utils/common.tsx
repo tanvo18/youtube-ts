@@ -34,7 +34,7 @@ export const roundNumber = (num: string): string => {
  * 
  * @return {string} string of date
  */
-export const calculateDate = (dateString: string): any => {
+export const calculateDate = (dateString: string): string => {
   return moment(dateString, 'YYYY-MM-DD').fromNow();
 };
 
@@ -44,6 +44,6 @@ export const calculateDate = (dateString: string): any => {
  * 
  * @return {string} string of date
  */
-export const convertFormatDate = (dateString: string): any => {
+export const convertFormatDate = (dateString: string): string => {
   return moment(dateString, 'YYYY-MM-DD').format('MMM Do YY');
 };

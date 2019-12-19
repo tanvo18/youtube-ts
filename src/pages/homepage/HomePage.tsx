@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import * as videoAPI from '../../api/videoAPI';
 import './Homepage.scss';
 import { roundNumber, calculateDate } from '../../utils/common';
+import { IVideoItem } from '../../interfaces/Interface';
 
 const VideoList = lazy(() => import('../../components/video-list/VideoList'));
 const HomePage: React.FC = () => {
@@ -9,10 +10,10 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     videoAPI.getPopularVideos()
-      .then(response => {
+      .then((response) => {
         // Normalize data
         let normalizeVideos = response.data.items;
-        normalizeVideos.forEach((videoItem: any) => {
+        normalizeVideos.forEach((videoItem: IVideoItem): void => {
           videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
           videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
         })

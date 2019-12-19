@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { searchVideoByKeyword, getStatisticById } from '../../api/videoAPI';
 import { roundNumber, calculateDate } from '../../utils/common';
+import { IVideoItem } from '../../interfaces/Interface';
 
 interface IProps {
   match: {
@@ -18,7 +19,7 @@ const SearchPage: React.FC<IProps> = ({ match }) => {
     searchVideoByKeyword(match.params.searchtext)
       .then((response) => {
         // Get id of videos from searchData
-        let id = '';
+        let id: string = '';
         // Concat string id
         response.data.items.forEach((item: any) => {
           id += item.id.videoId + ', ';
@@ -27,7 +28,7 @@ const SearchPage: React.FC<IProps> = ({ match }) => {
         getStatisticById(id).then((response) => {
           // Normalize data
           let normalizeVideos = response.data.items;
-          normalizeVideos.forEach((videoItem: any) => {
+          normalizeVideos.forEach((videoItem: IVideoItem) => {
             videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
             videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
           })
