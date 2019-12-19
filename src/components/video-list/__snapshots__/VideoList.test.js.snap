@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test VideoList should render correctly 1`] = `
+<div
+  className="container video-container"
+>
+  <div>
+    <ul
+      className="video-list"
+    >
+      <li
+        className="video-list-item"
+        onClick={[Function]}
+      >
+        <a
+          className="video-link"
+          href="/watch/cBVGlBWQzuc"
+          onClick={[Function]}
+        >
+          <div
+            className="thumbnail-wrap"
+          >
+            <img
+              alt=""
+              className="thumbnail-img"
+              src="https://i.ytimg.com/vi/cBVGlBWQzuc/mqdefault.jpg"
+            />
+          </div>
+          <p
+            className="video-title"
+          >
+            Maroon 5 - Girls Like You ft. Cardi B (Volume 2)
+          </p>
+          <p
+            className="channel-title"
+          >
+            Maroon5VEVO
+          </p>
+          <p
+            className="video-description"
+          >
+            1M
+             views - 
+            a day ago
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
