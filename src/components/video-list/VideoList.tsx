@@ -15,7 +15,7 @@ const VideoList: React.FC<IProps> = ({videos}): JSX.Element => {
     <div className="container video-container">
       <div>
         <ul className="video-list">
-          {videos && videos.length > 0 ?
+          {
             videos.map((videoItem, index) => (
               <VideoItem
                 key={index}
@@ -23,7 +23,6 @@ const VideoList: React.FC<IProps> = ({videos}): JSX.Element => {
                 onClickVideo={handleClickVideo}
               />
             ))
-            : <div>There are no videos</div>
           }
         </ul>
       </div>
