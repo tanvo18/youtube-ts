@@ -9,7 +9,13 @@
 - VScode
 
 ## Guideline
-- Please contact me to get .env file for running project
+- Create file .env in the same level with package.json and create variable like below or contact me to get file .env
+```
+
+REACT_APP_API_KEY=<YOUTUBE_API_KEY>
+REACT_APP_CLIENT_ID=<YOUTUBE_CLIENT_ID>
+
+```
 - Clone project: `git clone git@github.com:tanvo18/youtube-ts.git`
 - install library: `yarn install`
 - Run app: `yarn start`
