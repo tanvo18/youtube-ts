@@ -26,7 +26,7 @@ export const getPopularVideos = () => {
  * Function  get video by id
  * @param {string} videoId id of video
  */
-export const getVideosById = (videoId) => {
+export const getVideosById = (videoId: string) => {
   const url = '/videos';
 
   return api.get(url, {
@@ -40,7 +40,7 @@ export const getVideosById = (videoId) => {
  * Function search video by keyword
  * @param {string} keyword search keyword
  */
-export const searchVideoByKeyword = (keyword) => {
+export const searchVideoByKeyword = (keyword: string) => {
   const url = '/search';
 
   return api.get(url, {
@@ -56,7 +56,7 @@ export const searchVideoByKeyword = (keyword) => {
  * Function get statistic of video by id
  * @param {string} videoId id of video 
  */
-export const getStatisticById = (videoId) => {
+export const getStatisticById = (videoId: string) => {
   const url = '/videos';
 
   return api.get(url, {

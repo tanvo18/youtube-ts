@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     videoAPI.getPopularVideos()
-      .then((response) => {
+      .then((response : any) => {
         // Normalize data
         let normalizeVideos = response.data.items;
         normalizeVideos.forEach((videoItem: IVideoItem): void => {

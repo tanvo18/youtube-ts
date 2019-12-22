@@ -8,7 +8,7 @@ interface LogoProps {
   logoAlt: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ logoClass, logoImg, link, logoAlt }): JSX.Element => {
+const Logo: React.FC<LogoProps> = ({ logoClass, logoImg, link, logoAlt }) => {
   return (
     <div>
       <h1

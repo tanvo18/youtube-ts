@@ -8,7 +8,7 @@ interface IProps {
   videoId: string
 }
 
-const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
+const DetailVideo: React.FC<IProps> = ({ videoId }) => {
   const videoUrl = `http://www.youtube.com/embed/${videoId}`;
   const defaultVideo = {
     snippet: {
@@ -28,7 +28,7 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
   useEffect(() => {
     // Using api to fetch videos 
     getVideosById(videoId)
-      .then((response) => {
+      .then((response: any) => {
         let videoItem = response.data.items[0];
         videoItem.snippet.publishedAt = convertFormatDate(videoItem.snippet.publishedAt);
         videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount);

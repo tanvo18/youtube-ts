@@ -17,7 +17,7 @@ const SearchPage: React.FC<IProps> = ({ match }) => {
 
   useEffect(() => {
     searchVideoByKeyword(match.params.searchtext)
-      .then((response) => {
+      .then((response: any) => {
         // Get id of videos from searchData
         let id: string = '';
         // Concat string id
@@ -25,7 +25,7 @@ const SearchPage: React.FC<IProps> = ({ match }) => {
           id += item.id.videoId + ', ';
         });
 
-        getStatisticById(id).then((response) => {
+        getStatisticById(id).then((response: any) => {
           // Normalize data
           let normalizeVideos = response.data.items;
           normalizeVideos.forEach((videoItem: IVideoItem) => {
