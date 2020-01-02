@@ -6,7 +6,7 @@ interface IProps {
   videos: []
 }
 
-const VideoList: React.FC<IProps> = ({videos}): JSX.Element => {
+const VideoList: React.FC<IProps> = ({videos}) => {
   const handleClickVideo = (e: React.MouseEvent<HTMLElement>, videoId: string) => {
     console.log('videoId ', videoId);
   }

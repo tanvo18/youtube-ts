@@ -8,7 +8,7 @@ interface IProps {
   videoId: string
 }
 
-const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
+const DetailVideo: React.FC<IProps> = ({ videoId }) => {
   const videoUrl = `http://www.youtube.com/embed/${videoId}`;
   const defaultVideo = {
     snippet: {

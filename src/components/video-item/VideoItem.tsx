@@ -22,7 +22,7 @@ interface IProps {
   onClickVideo(event: React.MouseEvent<HTMLElement>, videoId: string): void;
 }
 
-const VideoItem: React.FC<IProps> = ({ video, onClickVideo }): JSX.Element => {
+const VideoItem: React.FC<IProps> = ({ video, onClickVideo }) => {
   const snippet = video.snippet;
   const statistics = video.statistics;
 

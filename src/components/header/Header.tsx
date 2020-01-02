@@ -8,7 +8,7 @@ interface ChildComponentProps extends RouteComponentProps<any> {
   /* other props for ChildComponent */
 }
 
-const Header: React.FC<ChildComponentProps> = ({ history }): JSX.Element => {
+const Header: React.FC<ChildComponentProps> = ({ history }) => {
   const [searchText, setText] = useState<string>('');
   const handleClickSearchBtn = (e: React.MouseEvent<HTMLElement>, searchText: string) => {
     linkToPage(searchText);
