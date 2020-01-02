@@ -28,14 +28,16 @@ const DetailVideo: React.FC<IProps> = ({ videoId }): JSX.Element => {
   useEffect(() => {
     // Using api to fetch videos 
     getVideosById(videoId)
-      .then((response) => {
-        let videoItem = response.data.items[0];
-        videoItem.snippet.publishedAt = convertFormatDate(videoItem.snippet.publishedAt);
-        videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount);
-        videoItem.statistics.likeCount = roundNumber(videoItem.statistics.likeCount);
-        videoItem.statistics.dislikeCount = roundNumber(videoItem.statistics.dislikeCount);
-
-        setVideo(videoItem);
+      .then((response: any) => {
+        if (response) {
+          let videoItem = response.data.items[0];
+          videoItem.snippet.publishedAt = convertFormatDate(videoItem.snippet.publishedAt);
+          videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount);
+          videoItem.statistics.likeCount = roundNumber(videoItem.statistics.likeCount);
+          videoItem.statistics.dislikeCount = roundNumber(videoItem.statistics.dislikeCount);
+          
+          setVideo(videoItem);
+        }
       })
   }, []);
 

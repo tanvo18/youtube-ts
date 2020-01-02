@@ -17,23 +17,27 @@ const SearchPage: React.FC<IProps> = ({ match }) => {
 
   useEffect(() => {
     searchVideoByKeyword(match.params.searchtext)
-      .then((response) => {
-        // Get id of videos from searchData
-        let id: string = '';
-        // Concat string id
-        response.data.items.forEach((item: any) => {
-          id += item.id.videoId + ', ';
-        });
+      .then((response: any) => {
+        if (response) {
+          // Get id of videos from searchData
+          let id: string = '';
+          // Concat string id
+          response.data.items.forEach((item: any) => {
+            id += item.id.videoId + ', ';
+          });
 
-        getStatisticById(id).then((response) => {
-          // Normalize data
-          let normalizeVideos = response.data.items;
-          normalizeVideos.forEach((videoItem: IVideoItem) => {
-            videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
-            videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
-          })
-          setVideos(normalizeVideos);
-        });
+          getStatisticById(id).then((response: any) => {
+            if (response) {
+              // Normalize data
+              let normalizeVideos = response.data.items;
+              normalizeVideos.forEach((videoItem: IVideoItem) => {
+                videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
+                videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
+              })
+              setVideos(normalizeVideos);
+            }
+          });
+        }
       });
   }, [match.params.searchtext]);
 

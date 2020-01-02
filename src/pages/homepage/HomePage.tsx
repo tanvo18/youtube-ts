@@ -10,14 +10,16 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     videoAPI.getPopularVideos()
-      .then((response) => {
-        // Normalize data
-        let normalizeVideos = response.data.items;
-        normalizeVideos.forEach((videoItem: IVideoItem): void => {
-          videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
-          videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
-        })
-        setVideos(normalizeVideos);
+      .then((response: any) => {
+        if (response) {
+          // Normalize data
+          let normalizeVideos = response.data.items;
+          normalizeVideos.forEach((videoItem: IVideoItem): void => {
+            videoItem.statistics.viewCount = roundNumber(videoItem.statistics.viewCount)
+            videoItem.snippet.publishedAt = calculateDate(videoItem.snippet.publishedAt);
+          })
+          setVideos(normalizeVideos);
+        }
       })
   }, []);
 

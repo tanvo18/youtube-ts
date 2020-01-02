@@ -6,6 +6,13 @@ const api = create({
   baseURL: constant.BASE_URL
 });
 
+const handleErrors = (response: any) => {
+  if (!response.ok) {
+    throw Error(response.originalError);
+  }
+  return response;
+}
+
 /**
  * Function get popular videos
  */
@@ -19,28 +26,34 @@ export const getPopularVideos = () => {
     videoCategoryId: '',
     maxResults: constant.MAX_RESULT,
     key: constant.API_KEY
-  });
+  })
+  .then(handleErrors)
+  .then(response => response)
+  .catch(error => console.log(error));
 };
 
 /**
  * Function  get video by id
  * @param {string} videoId id of video
  */
-export const getVideosById = (videoId) => {
+export const getVideosById = (videoId: string) => {
   const url = '/videos';
 
   return api.get(url, {
     id: videoId,
     part: constant.PART,
     key: constant.API_KEY
-  });
+  })
+  .then(handleErrors)
+  .then(response => response)
+  .catch(error => console.log(error));
 };
 
 /**
  * Function search video by keyword
  * @param {string} keyword search keyword
  */
-export const searchVideoByKeyword = (keyword) => {
+export const searchVideoByKeyword = (keyword: string) => {
   const url = '/search';
 
   return api.get(url, {
@@ -49,14 +62,17 @@ export const searchVideoByKeyword = (keyword) => {
     q: keyword,
     type: constant.TYPE,
     key: constant.API_KEY
-  });
+  })
+  .then(handleErrors)
+  .then(response => response)
+  .catch(error => console.log(error));
 };
 
 /**
  * Function get statistic of video by id
  * @param {string} videoId id of video 
  */
-export const getStatisticById = (videoId) => {
+export const getStatisticById = (videoId: string) => {
   const url = '/videos';
 
   return api.get(url, {
@@ -64,5 +80,8 @@ export const getStatisticById = (videoId) => {
     part: constant.PART,
     maxResults: constant.MAX_RESULT,
     key: constant.API_KEY
-  });
+  })
+  .then(handleErrors)
+  .then(response => response)
+  .catch(error => console.log(error));
 };
